@@ -7,8 +7,9 @@ public class MainFrame extends JFrame{
 
 
     private JPanel mainPanel;
-    private JMenuBar currencyMenu = new JMenuBar();
-    private JMenu chooseMenu;
+    private JMenuBar mainBar = new JMenuBar();
+    private JMenu chooseCryptoMenu;
+    private JMenu choosePriceMenu;
 
 
     public MainFrame()
@@ -17,7 +18,8 @@ public class MainFrame extends JFrame{
         setLocationRelativeTo(null);
         setMenuBar();
         addMenu();
-        addMenuItems();
+        addCryptoMenuItems();
+        addPriceMenuItems();
     }
 
 
@@ -30,16 +32,18 @@ public class MainFrame extends JFrame{
 
     private void setMenuBar()
     {
-        setJMenuBar(currencyMenu);
+        setJMenuBar(mainBar);
     }
 
     private void addMenu()
     {
-        chooseMenu = new JMenu("Choose currency");
-        currencyMenu.add(chooseMenu);
+        chooseCryptoMenu = new JMenu("Cryptocurrency");
+        choosePriceMenu= new JMenu("Price");
+        mainBar.add(chooseCryptoMenu);
+        mainBar.add(choosePriceMenu);
     }
 
-    private void addMenuItems()
+    private void addCryptoMenuItems()
     {
         JMenuItem bitcoinItem = new JMenuItem("BTC");
         JMenuItem ethereumItem = new JMenuItem("ETH");
@@ -49,14 +53,27 @@ public class MainFrame extends JFrame{
         JMenuItem polkadotItem = new JMenuItem("DOT");
         JMenuItem uniswapProtocolItem = new JMenuItem("UNI");
 
-        chooseMenu.add(bitcoinItem);
-        chooseMenu.add(ethereumItem);
-        chooseMenu.add(cardanoItem);
-        chooseMenu.add(xrpItem);
-        chooseMenu.add(litecoinItem);
-        chooseMenu.add(polkadotItem);
-        chooseMenu.add(uniswapProtocolItem);
+        chooseCryptoMenu.add(bitcoinItem);
+        chooseCryptoMenu.add(ethereumItem);
+        chooseCryptoMenu.add(cardanoItem);
+        chooseCryptoMenu.add(xrpItem);
+        chooseCryptoMenu.add(litecoinItem);
+        chooseCryptoMenu.add(polkadotItem);
+        chooseCryptoMenu.add(uniswapProtocolItem);
 
+    }
+
+    private void addPriceMenuItems()
+    {
+        JMenuItem usdItem = new JMenuItem("USD");
+        JMenuItem eurItem = new JMenuItem("EUR");
+        JMenuItem plnItem = new JMenuItem("PLN");
+        JMenuItem chfItem = new JMenuItem("CHF");
+
+        choosePriceMenu.add(usdItem);
+        choosePriceMenu.add(eurItem);
+        choosePriceMenu.add(plnItem);
+        choosePriceMenu.add(chfItem);
     }
 
 }
