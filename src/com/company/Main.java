@@ -1,8 +1,13 @@
 package com.company;
 
+import javax.swing.*;
+import java.awt.*;
+
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+	MainFrame frame = new MainFrame();
+	frame.setVisible(true);
+	frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 }
