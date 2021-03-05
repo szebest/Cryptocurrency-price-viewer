@@ -1,4 +1,6 @@
-package com.company;
+package com.company.main;
+
+import com.company.cryptocurrencies.Cryptocurrency;
 
 import javax.swing.*;
 import java.awt.*;
@@ -7,9 +9,14 @@ public class MainFrame extends JFrame{
 
 
     private JPanel mainPanel;
+    private JLabel cryptoType;
+    private JLabel currentValue;
+    private JLabel averageValue;
+    private JLabel chaneAmount;
+    private JPanel chartPanel;
     private JMenuBar mainBar = new JMenuBar();
     private JMenu chooseCryptoMenu;
-    private JMenu choosePriceMenu;
+    private JMenu chooseCurrencyMenu;
 
 
     public MainFrame()
@@ -20,6 +27,7 @@ public class MainFrame extends JFrame{
         addMenu();
         addCryptoMenuItems();
         addPriceMenuItems();
+        add(mainPanel);
     }
 
 
@@ -38,9 +46,9 @@ public class MainFrame extends JFrame{
     private void addMenu()
     {
         chooseCryptoMenu = new JMenu("Cryptocurrency");
-        choosePriceMenu= new JMenu("Price");
+        chooseCurrencyMenu = new JMenu("Currency");
         mainBar.add(chooseCryptoMenu);
-        mainBar.add(choosePriceMenu);
+        mainBar.add(chooseCurrencyMenu);
     }
 
     private void addCryptoMenuItems()
@@ -70,10 +78,12 @@ public class MainFrame extends JFrame{
         JMenuItem plnItem = new JMenuItem("PLN");
         JMenuItem chfItem = new JMenuItem("CHF");
 
-        choosePriceMenu.add(usdItem);
-        choosePriceMenu.add(eurItem);
-        choosePriceMenu.add(plnItem);
-        choosePriceMenu.add(chfItem);
+        chooseCurrencyMenu.add(usdItem);
+        chooseCurrencyMenu.add(eurItem);
+        chooseCurrencyMenu.add(plnItem);
+        chooseCurrencyMenu.add(chfItem);
     }
+
+
 
 }

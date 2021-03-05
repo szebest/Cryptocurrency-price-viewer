@@ -1,7 +1,8 @@
-package com.company;
+package com.company.main;
+
+
 
 import javax.swing.*;
-import java.awt.*;
 
 public class Main {
 
@@ -9,5 +10,8 @@ public class Main {
 	MainFrame frame = new MainFrame();
 	frame.setVisible(true);
 	frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+
+
     }
 }
