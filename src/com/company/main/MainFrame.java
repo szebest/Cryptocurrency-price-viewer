@@ -18,6 +18,8 @@ public class MainFrame extends JFrame{
     private JMenuBar mainBar = new JMenuBar();
     private JMenu chooseCryptoMenu;
     private JMenu chooseCurrencyMenu;
+    private JMenu chooseUpdateTime;
+
 
 
     protected JMenuItem bitcoinItem;
@@ -33,6 +35,13 @@ public class MainFrame extends JFrame{
     protected JMenuItem plnItem;
     protected JMenuItem chfItem;
 
+    protected JMenuItem twoSeconds;
+    protected JMenuItem tenSeconds;
+    protected JMenuItem thirtySeconds;
+    protected JMenuItem oneMinute;
+
+
+    protected int updateTime=10000;
 
     public MainFrame()
     {
@@ -42,7 +51,10 @@ public class MainFrame extends JFrame{
         addMenu();
         addCryptoMenuItems();
         addPriceMenuItems();
+        addUpdateMenuItems();
         add(mainPanel);
+
+
 
 
     }
@@ -64,8 +76,10 @@ public class MainFrame extends JFrame{
     {
         chooseCryptoMenu = new JMenu("Cryptocurrency");
         chooseCurrencyMenu = new JMenu("Currency");
+        chooseUpdateTime=new JMenu("Update");
         mainBar.add(chooseCryptoMenu);
         mainBar.add(chooseCurrencyMenu);
+        mainBar.add(chooseUpdateTime);
     }
 
     private void addCryptoMenuItems()
@@ -99,6 +113,21 @@ public class MainFrame extends JFrame{
         chooseCurrencyMenu.add(eurItem);
         chooseCurrencyMenu.add(plnItem);
         chooseCurrencyMenu.add(chfItem);
+    }
+
+
+    private void addUpdateMenuItems()
+    {
+        twoSeconds = new JMenuItem("Per 2s");
+        tenSeconds = new JMenuItem("Per 10s");
+        thirtySeconds= new JMenuItem("Per 30s");
+        oneMinute = new JMenuItem("Per 1min");
+
+        chooseUpdateTime.add(twoSeconds);
+        chooseUpdateTime.add(tenSeconds);
+        chooseUpdateTime.add(thirtySeconds);
+        chooseUpdateTime.add(oneMinute);
+
     }
 
 

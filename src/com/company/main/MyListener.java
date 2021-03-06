@@ -5,11 +5,14 @@ import com.company.cryptocurrencies.MarketDataApi;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MyListener extends MainFrame implements ActionListener {
 
    private Cryptocurrency crypto = new Cryptocurrency();
    private MarketDataApi api = new MarketDataApi();
+   private Timer timer;
 
     public MyListener()
     {
@@ -27,6 +30,12 @@ public class MyListener extends MainFrame implements ActionListener {
         chfItem.addActionListener(this);
         setData();
 
+
+        twoSeconds.addActionListener(this);
+        tenSeconds.addActionListener(this);
+        thirtySeconds.addActionListener(this);
+        oneMinute.addActionListener(this);
+        updateTimer();
 
     }
 
@@ -69,6 +78,27 @@ public class MyListener extends MainFrame implements ActionListener {
             crypto.setCurrentCurrency("EUR");
         }
 
+        if(actionEvent.getSource()==twoSeconds){
+            updateTime=2000;
+            timer.cancel();
+            updateTimer();
+        }
+        if(actionEvent.getSource()==tenSeconds){
+            updateTime=1000;
+            timer.cancel();
+            updateTimer();
+        }
+        if(actionEvent.getSource()==thirtySeconds){
+            updateTime=30000;
+            timer.cancel();
+            updateTimer();
+        }
+        if(actionEvent.getSource()==oneMinute){
+            updateTime=60000;
+            timer.cancel();
+            updateTimer();
+        }
+
         setData();
 
     }
@@ -80,5 +110,17 @@ public class MyListener extends MainFrame implements ActionListener {
         averagePriceLabel.setText(crypto.getAveragePrice() +" "+ crypto.getCurrentCurrency());
         change24HValueLabel.setText(crypto.getChange24H() +" "+ crypto.getCurrentCurrency());
         cryptoType.setText(crypto.getCurrentCryptocurrency().toString());
+    }
+
+    private void updateTimer()
+    {
+        timer = new Timer();
+        timer.schedule(  new TimerTask()
+        {
+            @Override
+            public void run() {
+                setData();
+            }
+        },0,updateTime);
     }
 }
