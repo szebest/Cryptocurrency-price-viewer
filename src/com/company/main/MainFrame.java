@@ -10,15 +10,28 @@ public class MainFrame extends JFrame{
 
 
     private JPanel mainPanel;
-    private JLabel cryptoType;
-    private JLabel currentPrice;
-    private JLabel averagePrice;
-    private JLabel change24HPrice;
-    private JPanel chartPanel;
+    protected JLabel cryptoType;
+    protected JLabel currentPriceLabel;
+    protected JLabel averagePriceLabel;
+    protected JLabel change24HValueLabel;
+    protected JPanel chartPanel;
     private JMenuBar mainBar = new JMenuBar();
     private JMenu chooseCryptoMenu;
     private JMenu chooseCurrencyMenu;
-    private MarketDataApi api = new MarketDataApi();
+
+
+    protected JMenuItem bitcoinItem;
+    protected JMenuItem ethereumItem;
+    protected JMenuItem cardanoItem;
+    protected JMenuItem xrpItem;
+    protected JMenuItem litecoinItem;
+    protected JMenuItem polkadotItem;
+    protected JMenuItem uniswapProtocolItem;
+
+    protected JMenuItem usdItem;
+    protected JMenuItem eurItem;
+    protected JMenuItem plnItem;
+    protected JMenuItem chfItem;
 
 
     public MainFrame()
@@ -30,15 +43,6 @@ public class MainFrame extends JFrame{
         addCryptoMenuItems();
         addPriceMenuItems();
         add(mainPanel);
-
-        //test
-        /*Cryptocurrency crypto = new Cryptocurrency();
-        crypto.setCurrentCryptocurrency("BTC");
-        crypto.setCurrentCurrency("PLN");
-       api.getData(crypto);
-       currentPrice.setText(String.valueOf(crypto.getPrice()));*/
-
-
 
 
     }
@@ -66,13 +70,13 @@ public class MainFrame extends JFrame{
 
     private void addCryptoMenuItems()
     {
-        JMenuItem bitcoinItem = new JMenuItem("BTC");
-        JMenuItem ethereumItem = new JMenuItem("ETH");
-        JMenuItem cardanoItem = new JMenuItem("ADA");
-        JMenuItem xrpItem = new JMenuItem("XRP");
-        JMenuItem litecoinItem = new JMenuItem("LTC");
-        JMenuItem polkadotItem = new JMenuItem("DOT");
-        JMenuItem uniswapProtocolItem = new JMenuItem("UNI");
+        bitcoinItem = new JMenuItem("BTC");
+        ethereumItem = new JMenuItem("ETH");
+        cardanoItem = new JMenuItem("ADA");
+        xrpItem = new JMenuItem("XRP");
+        litecoinItem = new JMenuItem("LTC");
+        polkadotItem = new JMenuItem("DOT");
+        uniswapProtocolItem = new JMenuItem("UNI");
 
         chooseCryptoMenu.add(bitcoinItem);
         chooseCryptoMenu.add(ethereumItem);
@@ -86,10 +90,10 @@ public class MainFrame extends JFrame{
 
     private void addPriceMenuItems()
     {
-        JMenuItem usdItem = new JMenuItem("USD");
-        JMenuItem eurItem = new JMenuItem("EUR");
-        JMenuItem plnItem = new JMenuItem("PLN");
-        JMenuItem chfItem = new JMenuItem("CHF");
+        usdItem = new JMenuItem("USD");
+        eurItem = new JMenuItem("EUR");
+        plnItem = new JMenuItem("PLN");
+        chfItem = new JMenuItem("CHF");
 
         chooseCurrencyMenu.add(usdItem);
         chooseCurrencyMenu.add(eurItem);

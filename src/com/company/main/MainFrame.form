@@ -56,7 +56,7 @@
               <text value="Value:"/>
             </properties>
           </component>
-          <component id="edc6" class="javax.swing.JLabel" binding="currentPrice">
+          <component id="edc6" class="javax.swing.JLabel" binding="currentPriceLabel">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
               <gridbag top="0" left="5" bottom="0" right="0" weightx="0.0" weighty="0.0"/>
@@ -67,7 +67,7 @@
               <text value="20"/>
             </properties>
           </component>
-          <component id="c505f" class="javax.swing.JLabel" binding="averagePrice">
+          <component id="c505f" class="javax.swing.JLabel" binding="averagePriceLabel">
             <constraints>
               <grid row="1" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
               <gridbag top="0" left="5" bottom="0" right="0" weightx="0.0" weighty="0.0"/>
@@ -78,7 +78,7 @@
               <text value="Label"/>
             </properties>
           </component>
-          <component id="2b4ae" class="javax.swing.JLabel" binding="change24HPrice">
+          <component id="2b4ae" class="javax.swing.JLabel" binding="change24HValueLabel">
             <constraints>
               <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
               <gridbag top="0" left="5" bottom="0" right="0" weightx="0.0" weighty="0.0"/>

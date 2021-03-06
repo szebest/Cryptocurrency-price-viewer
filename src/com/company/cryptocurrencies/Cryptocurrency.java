@@ -3,8 +3,8 @@ package com.company.cryptocurrencies;
 public class Cryptocurrency {
 
 
-    private String currentCryptocurrency;
-    private String currentCurrency;
+    private String currentCryptocurrency="BTC";
+    private String currentCurrency="USD";
     private float price;
     private float averagePrice;
     private float change24H;

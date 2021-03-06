@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
 		EventQueue.invokeLater(() -> {
-			MainFrame frame = new MainFrame();
+			MyListener frame = new MyListener();
 			frame.setVisible(true);
 			frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		});
