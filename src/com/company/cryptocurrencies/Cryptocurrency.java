@@ -5,10 +5,9 @@ public class Cryptocurrency {
 
     private String currentCryptocurrency;
     private String currentCurrency;
-    private int price;
-    private int averagePrice;
-    private int change24H;
-
+    private float price;
+    private float averagePrice;
+    private float change24H;
 
 
     public Cryptocurrency(){
@@ -16,27 +15,27 @@ public class Cryptocurrency {
     }
 
 
-    public int getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 
-    public int getAveragePrice() {
+    public float getAveragePrice() {
         return averagePrice;
     }
 
-    public void setAveragePrice(int averagePrice) {
+    public void setAveragePrice(float averagePrice) {
         this.averagePrice = averagePrice;
     }
 
-    public int getChange24H() {
+    public float getChange24H() {
         return change24H;
     }
 
-    public void setChange24H(int change24H) {
+    public void setChange24H(float change24H) {
         this.change24H = change24H;
     }
 

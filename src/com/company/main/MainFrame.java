@@ -1,6 +1,7 @@
 package com.company.main;
 
 import com.company.cryptocurrencies.Cryptocurrency;
+import com.company.cryptocurrencies.MarketDataApi;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,13 +11,14 @@ public class MainFrame extends JFrame{
 
     private JPanel mainPanel;
     private JLabel cryptoType;
-    private JLabel currentValue;
-    private JLabel averageValue;
-    private JLabel chaneAmount;
+    private JLabel currentPrice;
+    private JLabel averagePrice;
+    private JLabel change24HPrice;
     private JPanel chartPanel;
     private JMenuBar mainBar = new JMenuBar();
     private JMenu chooseCryptoMenu;
     private JMenu chooseCurrencyMenu;
+    private MarketDataApi api = new MarketDataApi();
 
 
     public MainFrame()
@@ -28,6 +30,17 @@ public class MainFrame extends JFrame{
         addCryptoMenuItems();
         addPriceMenuItems();
         add(mainPanel);
+
+        //test
+        /*Cryptocurrency crypto = new Cryptocurrency();
+        crypto.setCurrentCryptocurrency("BTC");
+        crypto.setCurrentCurrency("PLN");
+       api.getData(crypto);
+       currentPrice.setText(String.valueOf(crypto.getPrice()));*/
+
+
+
+
     }
 
 
