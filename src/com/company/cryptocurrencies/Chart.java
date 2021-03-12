@@ -20,9 +20,12 @@ public class Chart {
 
     private ArrayList<Long>timestamps;
     private ArrayList<Float>prices;
-    private ChartFrame previousFrame;
+    private ChartFrame previousChart;
     private boolean dailyChartDataRange = false;
     private  JFreeChart chart;
+    private DefaultCategoryDataset chartDataSet;
+    private Toolkit kit = Toolkit.getDefaultToolkit();
+    private Dimension screenSize = kit.getScreenSize();
 
 
 
@@ -62,55 +65,33 @@ public class Chart {
 
     public void createChart(String currentCurrency)
     {
-
-        if(previousFrame!=null)
-        {
-            previousFrame.dispatchEvent(new WindowEvent(previousFrame,WindowEvent.WINDOW_CLOSING));
-        }
-
-        DefaultCategoryDataset dataset = createDataset("Price");
+        deletePreviousChart();
+        createDataset("Price");
 
         if(dailyChartDataRange=true) {
-           chart = ChartFactory.createLineChart(currentCurrency, "Date", "", dataset);
+           chart = ChartFactory.createLineChart(currentCurrency, "Date", "", chartDataSet);
         }
         else
         {
-             chart = ChartFactory.createLineChart(currentCurrency, "Time", "", dataset);
+             chart = ChartFactory.createLineChart(currentCurrency, "Time", "", chartDataSet);
         }
 
-        chart.setBackgroundPaint(Color.WHITE);
-        chart.getTitle().setPaint(Color.GREEN);
-        chart.getLegend().setFrame(BlockBorder.NONE);
-        chart.getLegend().setItemFont(new Font("Serif", Font.BOLD, 20 ));
+        setChartProperties();
+        createChartFrame();
 
 
-     ChartFrame chartFrame = new ChartFrame("Chart",chart);
-     chartFrame.setSize(500,430);
-     chartFrame.setResizable(false);
-
-    chartFrame.setAlwaysOnTop(true);
-    chartFrame.setVisible(true);
-
-     previousFrame=chartFrame;
-
-       Toolkit kit = Toolkit.getDefaultToolkit();
-        Dimension screenSize = kit.getScreenSize();
-
-        chartFrame.setLocation(screenSize.width/2-screenSize.width/20,screenSize.height/4+screenSize.height/80);
     }
 
 
 
-    private DefaultCategoryDataset createDataset(String currentCurrency)
+    private void createDataset(String legendName)
     {
-
-        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        chartDataSet = new DefaultCategoryDataset();
 
             for(int i =0;i<prices.size();i++)
             {
-                dataset.addValue(prices.get(i),currentCurrency,convertTimestamp(timestamps.get(i)));
+                chartDataSet.addValue(prices.get(i),legendName,convertTimestamp(timestamps.get(i)));
             }
-            return dataset;
     }
 
     private String convertTimestamp( long timestamp)
@@ -131,6 +112,36 @@ public class Chart {
             String stringDate = DateFor.format(date);
             return stringDate;
         }
+    }
+
+    private void deletePreviousChart()
+
+    {
+        if(previousChart !=null)
+        {
+            previousChart.dispatchEvent(new WindowEvent(previousChart,WindowEvent.WINDOW_CLOSING));
+        }
+    }
+
+    private void setChartProperties()
+    {
+        chart.setBackgroundPaint(Color.WHITE);
+        chart.getTitle().setPaint(Color.GREEN);
+        chart.getLegend().setFrame(BlockBorder.NONE);
+        chart.getLegend().setItemFont(new Font("Serif", Font.BOLD, 20 ));
+    }
+
+    private void createChartFrame()
+    {
+        ChartFrame chartFrame = new ChartFrame("Chart",chart);
+        chartFrame.setSize(500,430);
+        chartFrame.setResizable(false);
+        chartFrame.setAlwaysOnTop(true);
+        chartFrame.setVisible(true);
+
+        previousChart =chartFrame;
+
+        chartFrame.setLocation(screenSize.width/2-screenSize.width/20,screenSize.height/4+screenSize.height/80);
     }
 
 }

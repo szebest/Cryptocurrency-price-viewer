@@ -22,35 +22,11 @@ public class MainFrameListener extends MainFrame implements ActionListener {
     {
 
         api= new MarketDataApi(cryptocurrency,chart);
-
-        bitcoinItem.addActionListener(this);
-        ethereumItem.addActionListener(this);
-        cardanoItem.addActionListener(this);
-        xrpItem.addActionListener(this);
-        litecoinItem.addActionListener(this);
-        polkadotItem.addActionListener(this);
-        uniswapProtocolItem.addActionListener(this);
-
-        usdItem.addActionListener(this);
-        plnItem.addActionListener(this);
-        eurItem.addActionListener(this);
-        chfItem.addActionListener(this);
-
-
-        twoSeconds.addActionListener(this);
-        tenSeconds.addActionListener(this);
-        thirtySeconds.addActionListener(this);
-        oneMinute.addActionListener(this);
-
-       addButtonsActionListener();
-
-        setData();
-          getChartData();
-          createChart();
-        updateTimer();
-
-
-
+        addCryptocurrencyItemsListener();
+        addCurrencyItemsListener();
+        addUpdateRateItemsListener();
+        addButtonsActionListener();
+        setInitialData();
 
 
     }
@@ -206,6 +182,42 @@ public class MainFrameListener extends MainFrame implements ActionListener {
             chart.setDailyChartDataRange(false);
         }
         chart.createChart(cryptocurrency.getCurrentCurrency());
+    }
+
+
+    private void addCryptocurrencyItemsListener()
+    {
+        bitcoinItem.addActionListener(this);
+        ethereumItem.addActionListener(this);
+        cardanoItem.addActionListener(this);
+        xrpItem.addActionListener(this);
+        litecoinItem.addActionListener(this);
+        polkadotItem.addActionListener(this);
+        uniswapProtocolItem.addActionListener(this);
+    }
+
+    private void addCurrencyItemsListener()
+    {
+        usdItem.addActionListener(this);
+        plnItem.addActionListener(this);
+        eurItem.addActionListener(this);
+        chfItem.addActionListener(this);
+    }
+
+    private void addUpdateRateItemsListener()
+    {
+        twoSeconds.addActionListener(this);
+        tenSeconds.addActionListener(this);
+        thirtySeconds.addActionListener(this);
+        oneMinute.addActionListener(this);
+    }
+
+    private void setInitialData()
+    {
+        setData();
+        getChartData();
+        createChart();
+        updateTimer();
     }
 
 

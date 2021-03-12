@@ -63,7 +63,6 @@ public class MainFrame extends JFrame{
         addPriceMenuItems();
         addUpdateMenuItems();
         addButtonGroup();
-
         add(mainPanel);
 
     }
