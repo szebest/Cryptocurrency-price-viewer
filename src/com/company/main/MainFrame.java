@@ -1,7 +1,6 @@
 package com.company.main;
 
-import com.company.cryptocurrencies.Cryptocurrency;
-import com.company.cryptocurrencies.MarketDataApi;
+import com.company.cryptocurrencies.Chart;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,14 +13,15 @@ public class MainFrame extends JFrame{
     protected JLabel currentPriceLabel;
     protected JLabel averagePriceLabel;
     protected JLabel change24HValueLabel;
-    protected JPanel chartPanel;
+    protected JPanel chartAreaPanel;
+    private JPanel pricesInfoPanel;
+
+
+
     private JMenuBar mainBar = new JMenuBar();
+
+
     private JMenu chooseCryptoMenu;
-    private JMenu chooseCurrencyMenu;
-    private JMenu chooseUpdateTime;
-
-
-
     protected JMenuItem bitcoinItem;
     protected JMenuItem ethereumItem;
     protected JMenuItem cardanoItem;
@@ -30,15 +30,25 @@ public class MainFrame extends JFrame{
     protected JMenuItem polkadotItem;
     protected JMenuItem uniswapProtocolItem;
 
+    private JMenu chooseCurrencyMenu;
     protected JMenuItem usdItem;
     protected JMenuItem eurItem;
     protected JMenuItem plnItem;
     protected JMenuItem chfItem;
 
+    private JMenu chooseUpdateTime;
     protected JMenuItem twoSeconds;
     protected JMenuItem tenSeconds;
     protected JMenuItem thirtySeconds;
     protected JMenuItem oneMinute;
+
+    private ButtonGroup chartButtonsGroup;
+    protected JRadioButton dailyDataButton;
+    protected JRadioButton hourlyDataButton;
+    protected JPanel chartPanel= new JPanel();
+
+
+    protected Chart chart=new Chart();
 
 
     protected int updateTime=10000;
@@ -52,10 +62,9 @@ public class MainFrame extends JFrame{
         addCryptoMenuItems();
         addPriceMenuItems();
         addUpdateMenuItems();
+        addButtonGroup();
+
         add(mainPanel);
-
-
-
 
     }
 
@@ -129,6 +138,21 @@ public class MainFrame extends JFrame{
         chooseUpdateTime.add(oneMinute);
 
     }
+
+
+    private void addButtonGroup()
+    {
+        chartButtonsGroup = new ButtonGroup();
+        chartButtonsGroup.add(hourlyDataButton);
+        chartButtonsGroup.add(dailyDataButton);
+
+
+
+
+    }
+
+
+
 
 
 
