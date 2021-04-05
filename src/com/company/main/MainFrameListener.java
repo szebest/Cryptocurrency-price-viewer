@@ -34,9 +34,8 @@ public class MainFrameListener extends MainFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
 
-        if(actionEvent.getSource()==bitcoinItem)
-        {  cryptocurrency.setCurrentCryptocurrency("BTC");
-
+        if(actionEvent.getSource()==bitcoinItem) {  
+           cryptocurrency.setCurrentCryptocurrency("BTC");
         }
         if(actionEvent.getSource()==ethereumItem) {
             cryptocurrency.setCurrentCryptocurrency("ETH");
@@ -76,7 +75,7 @@ public class MainFrameListener extends MainFrame implements ActionListener {
             updateTimer();
         }
         if(actionEvent.getSource()==tenSeconds){
-            updateTime=1000;
+            updateTime=10000;
             timer.cancel();
             updateTimer();
         }
